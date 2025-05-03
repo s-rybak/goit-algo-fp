@@ -54,16 +54,25 @@ class AVLTree:
         self.root = None
 
     def get_height(self, node: Node):
+        """
+        Returns the height of the node.
+        """
         if not node:
             return 0
         return node.height
 
     def get_balance(self, node: Node):
+        """
+        Returns the balance of the node.
+        """
         if not node:
             return 0
         return self.get_height(node.left) - self.get_height(node.right)
 
     def left_rotate(self, z: Node):
+        """
+        Left rotates the node.
+        """
         y = z.right
         T2 = y.left
 
@@ -76,6 +85,9 @@ class AVLTree:
         return y
 
     def right_rotate(self, y: Node):
+        """
+        Right rotates the node.
+        """
         x = y.left
         T3 = x.right
 
@@ -88,15 +100,24 @@ class AVLTree:
         return x
 
     def min_value_node(self, node: Node):
+        """
+        Finds the node with the minimum value.
+        """
         current = node
         while current.left is not None:
             current = current.left
         return current
 
     def insert(self, key):
+        """
+        Inserts a new key into the AVL tree.
+        """
         self.root = self._insert(key, self.root)
 
     def _insert(self, key, node):
+        """
+        Inserts a new key into the AVL tree.
+        """
         if not node:
             return Node(key)
 
@@ -133,9 +154,15 @@ class MinHeap:
         self.root = None
 
     def insert(self, key):
+        """
+        Inserts a new key into the min heap.
+        """
         self.root = self._insert(key, self.root)
 
     def _insert(self, key, node: Node = None):
+        """
+        Inserts a new key into the min heap.
+        """
         if not node:
             self.root = Node(key)
             return self.root
@@ -157,6 +184,9 @@ class MinHeap:
             i += 1
 
     def _heapify_up(self, node, parents, index):
+        """
+        Heapifies the min heap up.
+        """
         parent, pi = parents[index]
         if parent.val <= node.val:
             return self.root

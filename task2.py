@@ -4,11 +4,6 @@ import turtle
 def draw_pifagor_tree(t, length, angle, level):
     """
     Recursively draws a Pifagor tree
-
-    :param t: turtle object
-    :param length: length of the current segment
-    :param angle: angle of the branches
-    :param level: remaining recursion level
     """
     if level == 0:
         return
